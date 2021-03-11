@@ -12,6 +12,7 @@ const fetchData = async () => await axios.get(`http://www.omdbapi.com/?apikey=fd
   );
 
 const Films = ({ films, error }) => {
+  if(error) return <div>Filme não encontrado</div>
   return (
     <div>
         { films.Search.map( (m) => <div>{m.Title} --- <br /><img src={m.Poster} alt="POSTER FALTANDO"></img> --- {m.Year}</div>  ) }
